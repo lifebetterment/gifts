@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Gift Ideas Generator</title>
+    <style>
+      form {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        margin-right: 10px;
+      }
+      select {
+        width: 200px;
+        height: 35px;
+        font-size: 16px;
+      }
+      button {
+        width: 200px;
+        height: 40px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gift Ideas Generator</h1>
+    <form id="gift-form">
+      <p>
+        <label for="recipient">Who are you buying a gift for?</label>
+        <select id="recipient" name="recipient">
+          <option value="friend">Friend</option>
+          <option value="family member">Family Member</option>
+          <option value="partner">Partner</option>
+        </select>
+      </p>
+      <p>
+        <label for="interests">What are the recipient's interests?</label>
+        <select id="interests" name="interests">
+          <option value="sports">Sports</option>
+          <option value="music">Music</option>
+          <option value="cooking">Cooking</option>
+        </select>
+      </p>
+      <p>
+        <label for="budget">What is your budget for the gift?</label>
+        <select id="budget" name="budget">
+          <option value="$50">$50</option>
+          <option value="$100">$100</option>
+        </select>
+      </p>
+      <p>
+        <button type="submit">Generate Gift Ideas</button>
+      </p>
+    </form>
+    <div id="gift-ideas"></div>
+    <script>
+      const form = document.getElementById("gift-form");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const recipient = form.elements["recipient"].value;
+        const interests = form.elements["interests"].value;
+        const budget = form.elements["budget"].value;
+        generateGiftIdeas(recipient, interests, budget);
+      });
+      function generateGiftIdeas(recipient, interests, budget) {
+        let giftIdeas = [];
+        if (recipient === "friend" && interests === "sports") {
+          if (budget === "$50") {
+            giftIdeas.push(
+              "A new basketball: https://www.amazon.com/dp/B072QK9L9X/?tag=alexiasubstac-20"
+            );
+          } else if (budget === "$100") {
+            giftIdeas.push(
+              "A set of golf clubs: https://www.amazon.com/dp/B081
